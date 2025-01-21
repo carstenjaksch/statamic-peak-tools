@@ -29,6 +29,11 @@
                     )
                 },
                 successHook(response) {
+                    this.$refs.form.dispatchEvent(new Event('submit', {
+                        bubbles: true,
+                        cancelable: true
+                    }));
+                    
                     {{ success_hook }}
 
                     setTimeout(() => {
